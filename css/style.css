@@ -143,6 +143,55 @@ label {
 
 /*------------Header--------------------*/
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  -webkit-animation: smoothScroll 1s forwards;
+  animation: smoothScroll 1s forwards;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.fixed .fix-p {
+  padding-left: 70px;
+}
+
+@-webkit-keyframes smoothScroll {
+  0% {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes smoothScroll {
+  0% {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+
 .nav-link {
   font-size: 16px;
   letter-spacing: 0.8px;
@@ -155,18 +204,22 @@ label {
   color: #ff4747;
 }
 
-.header {
+/* .header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-}
+} */
 
 .header .logo {
   display: inline-block;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   color: #072b3d;
+}
+.header.fixed .logo{
+  width: 80px;
+  height: 80px;
 }
 
 .header .logo img {
@@ -399,6 +452,7 @@ section.about * {
   background-blend-mode: overlay;
   background-size: cover;
   background-position: center center;
+  background-attachment: fixed;
 }
 
 .stats-box {
@@ -419,6 +473,8 @@ section.about * {
   border-left: 2px solid #324452;
   border-right: 2px solid #324452;
   height: 35%;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 .stats-box::after{
   content: "";
@@ -429,6 +485,14 @@ section.about * {
   border-left: 2px solid #324452;
   border-right: 2px solid #324452;
   height: 35%;
+    transition: all 0.3s ease 0s;
+}
+.stats-box:hover::after, .stats-box:hover:before{
+  border-color: #ff4747;
+}
+.stats-box:hover{
+  background: #ff4747;
+  border-color: #ff4747;
 }
 .stats-content img{
   width: 50px;
@@ -443,8 +507,121 @@ section.about * {
   font-weight: 500;
   transition: all 0.4s ease;
 }
+
+.stats-content:hover h4{
+  color: #fff;
+}
 .stats-content h4{
   color: #fe934f;
   font-size: 34px;
   font-weight: 600;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+/* Process */
+.process span{
+  color: #777;
+}
+
+
+
+/* Testimonials  */
+.testimonials{
+  width: 100%;
+  text-align: center;
+  background: url('../img/stats-bg.jpg'), #1d2427;
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.testimonials .page_title h2, .testimonials .page_title p{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.testimonial-box{
+  cursor: grab;
+}
+.testimonial-box .item {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.testimonial-box .testimonial-img{
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.testimonial-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testimonial-box q{
+  display: inline-block;
+  color: #fff;
+  padding: 30px 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0.6px;
+}
+.testimonial-box h4{
+  color: #fe934f;
+  padding-top: 30px;
+  position: relative;
+  font-weight: 300;
+  letter-spacing: 0.6px;
+  font-style: italic;
+}
+.testimonial-box h4:before{
+  content: '';
+  display: inline-block;
+  width: 120px;
+  height: 2px;
+  background: rgb(200, 200, 200);
+  /* background: linear-gradient(90deg, rgba(69,69,69,1) 0%, rgba(219,219,219,1) 50%, rgba(69,69,69,1) 100%); */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.owl-prev, .owl-next{
+  filter: invert(1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.owl-prev{
+  left: 0%;
+}
+.owl-next{
+  right: 0%;
+}
+.owl-theme .owl-nav [class*=owl-]:hover{
+  background: none;
+}
+
+.get-offer{
+  padding: 80px 0;
+  background: #cce8f9;
+}
+
+footer{
+  background-color: #072b3d;
+}
+footer p{
+  color: #fff;
+}
+footer ul li a{
+  color: #fff;
+  padding: 0 15px;
+}
+footer ul li a:hover{
+  color: #ff4747;
 }

@@ -30,6 +30,17 @@
 		}
 	});
 
+
+	$('.testimonial-box').owlCarousel({
+		loop:true,
+		center:true,
+		margin:30,
+		autoplay:true,
+		items:1,
+		nav:true,
+		navText: ["<img src='../img/arrow-left.png' alt='Previous'>","<img src='../img/arrow-right.png' alt='Next'>"]
+	});
+
 	
 	/*-------tooltip---------*/
 	
